@@ -11,5 +11,14 @@ npm install
 ## Ejecución del back
 npm run start
 
-## Ejecución del fron
+## Ejecución del front
 ng serve
+
+## Capturas
+
+<img src="./Capt1.png" 
+   borderRadius='1rem' boxShadow = '0 5px 18px rgba(0,0,0,0.3)'>
+<br>
+<img src="./Capt2.png" 
+   borderRadius='1rem' boxShadow = '0 5px 18px rgba(0,0,0,0.3)'>
+<br>
