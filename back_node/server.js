@@ -88,7 +88,7 @@ io.on('connection', function (socket) {
                     const inPayload = res.payload;
 
                     io.to(`room_${inPayloadCookie.id}`).emit('message',{
-                        msg: `Mensaje a todos los dispositivos de la sala room__${inPayloadCookie.id}: ${inPayload.message}`
+                        msg: `Sala room__${inPayloadCookie.id} de ${inPayloadCookie.user}: ${inPayload.message}`
                     });
 
                     break;
