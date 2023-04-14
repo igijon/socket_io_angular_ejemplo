@@ -1,0 +1,115 @@
+<!-- ==============================================
+	    Hero
+	    =============================================== -->
+<section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="pb-2">
+          <div *ngIf="!show_message" class="alert-warning">
+            Hemos detectado que no tienes cookies creadas por lo tanto, eres un
+            usuario <b>Anonimo</b> para poder unirte a una sala
+            <b>incia session</b>
+          </div>
+          <div *ngIf="show_message" class="alert-success">
+            Hola <b>{{ show_message.user }}</b
+            >, tu sala es <b>room_{{ show_message.id }}</b>
+          </div>
+        </div>
+
+        <div class="cardbox shadow-lg bg-white">
+
+          <!--/ cardbox-heading -->
+
+          <div class="cardbox-item">
+            <ul class="list-ul">
+              <li *ngFor="let m of messages">{{ m }}</li>
+            </ul>
+            <img
+              class="img-fluid img_fondo"
+              src="https://images.unsplash.com/photo-1520262494112-9fe481d36ec3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"
+              alt="Image"
+            />
+          </div>
+          <!--/ cardbox-base -->
+          <div class="cardbox-comments">
+            <span class="comment-avatar float-left">
+              <a href=""
+                ><img
+                  class="rounded-circle"
+                  src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg"
+                  alt="..."
+              /></a>
+            </span>
+            <div class="search">
+              <input
+                [(ngModel)]="input_message"
+                placeholder="Write a comment"
+                (keyup.enter)="sendData('message')"
+                type="text"
+              />
+              <button
+                (click)="sendData('message')"
+                type="button"
+                class="btn btn-primary btn-sm"
+              >
+                ENVIAR
+              </button>
+            </div>
+            <!--/. Search -->
+            <div class="p-2"></div>
+          </div>
+          <!--/ cardbox-like -->
+        </div>
+        <!--/ cardbox -->
+      </div>
+      <!--/ col-lg-6 -->
+      <div class="col-lg-3">
+        <div class="shadow-lg p-4 mb-2 bg-white author">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1"><b>Nombre</b></label>
+              <input
+                type="text"
+                [(ngModel)]="user"
+                [ngModelOptions]="{ standalone: true }"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter name"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1"><b>ID</b></label>
+              <input
+                type="text"
+                [ngModelOptions]="{ standalone: true }"
+                [(ngModel)]="user_id"
+                class="form-control"
+                id="exampleInputPassword1"
+                placeholder="Escribe un id"
+              />
+              <small id="exampleInputPassword1" class="form-text text-muted"
+                >Para el ejemplo coloca un ID, puede ser un numero.</small
+              >
+            </div>
+
+            <button
+              (click)="mockedUser()"
+              type="button"
+              class="btn btn-primary"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <!--/ col-lg-3 -->
+    </div>
+    <!--/ row -->
+  </div>
+  <!--/ container -->
+</section>

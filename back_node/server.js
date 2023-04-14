@@ -6,13 +6,20 @@ import express from 'express';
 import http from 'http';
 import {Server} from 'socket.io';
 import chalk from 'chalk';
+
 const app = express();
-const server = http.Server(app)
-const io = new Server(server);
+
+const server = http.Server(app);
+const io = new Server(server, {
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+    }
+});
 
 /**
  * ----- API REST ------
- * En esta parte hacemos que cuando visiten http://localhost:3000/ retore una pagina con "Hello World"
+ * En esta parte hacemos que cuando visiten http://localhost:3000/ retorne una pagina con "Hello World"
  */
 
 app.get('/', function (req, res) { 
